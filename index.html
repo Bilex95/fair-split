@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>fair-split — split bills fairly</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main>
+  <h1>fair-split</h1>
+  <p class="tagline">Everyone pays for what they actually had.</p>
+
+  <section id="people" aria-label="People and their items"></section>
+  <button id="add-person" type="button">+ Add person</button>
+
+  <section class="extras">
+    <label>Tax <input id="tax" type="number" min="0" step="0.01" value="0" /></label>
+    <label>Tip <input id="tip" type="number" min="0" step="0.01" value="0" /></label>
+  </section>
+
+  <section id="results" aria-live="polite"></section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
