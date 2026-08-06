@@ -55,6 +55,8 @@ function render() {
       label.type = "text";
       label.placeholder = "Item (e.g. jollof rice)";
       label.value = item.label;
+      // ponytail: named for SR users; placeholder alone is not a name
+      label.setAttribute("aria-label", `Item name for ${person.name || "person"}`);
       label.addEventListener("input", (e) => { item.label = e.target.value; });
 
       const amount = document.createElement("input");
@@ -63,7 +65,7 @@ function render() {
       amount.step = "0.01";
       amount.placeholder = "0.00";
       amount.value = item.amount || "";
-      amount.setAttribute("aria-label", "Item cost");
+      amount.setAttribute("aria-label", `Item cost for ${person.name || "person"}`);
       amount.addEventListener("input", (e) => { item.amount = e.target.value; renderResults(); });
 
       row.append(label, amount);
@@ -74,6 +76,7 @@ function render() {
     addItem.type = "button";
     addItem.className = "small";
     addItem.textContent = "+ item";
+    addItem.setAttribute("aria-label", `Add item for ${person.name || "person"}`);
     addItem.addEventListener("click", () => {
       person.items.push({ label: "", amount: 0 });
       render();
